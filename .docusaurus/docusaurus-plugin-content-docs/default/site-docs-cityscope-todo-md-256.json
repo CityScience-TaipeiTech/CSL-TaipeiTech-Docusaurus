@@ -1,0 +1,27 @@
+{
+  "id": "cityscope/todo",
+  "title": "目標",
+  "description": "建立 visualization 平台，......",
+  "source": "@site/docs/cityscope/todo.md",
+  "sourceDirName": "cityscope",
+  "slug": "/cityscope/todo",
+  "permalink": "/docs/cityscope/todo",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/cityscope/todo.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "City Scope",
+    "permalink": "/docs/category/city-scope"
+  },
+  "next": {
+    "title": "Super Contoller",
+    "permalink": "/docs/category/super-contoller"
+  }
+}
