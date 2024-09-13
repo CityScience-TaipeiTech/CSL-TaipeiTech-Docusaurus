@@ -43,12 +43,39 @@ hide_table_of_contents: false
 ![IncomingWebhook](image-4.png)
 
 ## 02 建立 Airflow Connection
-Airflow部分有二種方式可對應不同的hook，一種為HTTP Webhook，一種則是SlackNotifier。網路上多數教學文章以HTTP Webhook為主，但二種皆可傳送訊息但Airflow Connection設定、Function內寫法略有出入，可於下方參考各自來源解說。
+Airflow部分有二種方式可對應不同的hook，一種為`HTTP Webhook`，一種則是`SlackNotifier`。網路上多數教學文章以HTTP Webhook為主，但二種皆可傳送訊息但Airflow Connection設定、Function內寫法略有出入，可於下方參考各自來源解說。
+
+### 02-1 新增Connection
+於Airflow上方點擊 Admin > Connection
+
 ![AirflowConnection](image-5.png)
-- http
-頻道名稱要寫入在`Login`中、密碼另外貼，schema可寫可不寫
-- slack_api
-須設定
+
+新增new record
+
+![NewConnection](image-6.png)
+
+
+**HTTP版本**
+
+- Connection id: 這個Connection的名稱(可與Slack API不同，後續會做為Python的參數導入)
+- Connection type: 點選HTTP
+- Host:Webhook URL的網址前半部(到Service結束)
+- Login: 預計傳送訊息的頻道名稱 (測試過有無#都可成功)
+- Password: Webhook URL的後半部('Service/' 之後)
+
+(schema可寫可不寫)
+
+![alt text](image-7.png)
+
+完成後點選`save`即可新增，完成設定。
+頻道名稱要寫入在`Login`中、密碼另外貼，
+
+**SlackNotifier版本**
+
+**參考影片｜**[SlackNotifier教學](https://www.youtube.com/watch?v=4yQJWnhKEa4)
+於Slack API的頁面中，找到 Features > OAuth & Permissions
+
+![SlackNotifier](image-8.png)
 
 ## 03 建立通報訊息與功能
 參考來源如下：
