@@ -12,7 +12,7 @@ hide_table_of_contents: false
 ![airflow_channel_notification](image.png)
 
 ## 01 建立 Slack API
-由於Slack需要透過API傳送客製化排成與訊息，因此第一步我們需要先至Slack創建屬於自己的App(API)。而好消息是，Slack在這方面的官網教學資源非常豐富，Airflow也有對應的教學資源，基本上不用擔心。不用是管理員，個人帳號也可以自己建立Webhook。參考以下文章，透過官網建立API。
+由於Slack需要透過API傳送客製化排程與訊息，因此第一步我們需要先至Slack創建屬於自己的App(API)。而好消息是，Slack在這方面的官網教學資源非常豐富，Airflow也有對應的教學資源，基本上不用擔心。不用是管理員，個人帳號也可以自己建立Webhook。參考以下文章，透過官網建立API。
 
 **教學文章｜**[Slack API 官方教學](https://api.slack.com/messaging/webhooks)
 

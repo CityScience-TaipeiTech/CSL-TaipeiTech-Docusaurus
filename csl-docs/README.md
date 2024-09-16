@@ -3,22 +3,20 @@
 This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
 ### Installation
-
-```
-$ yarn
+記得第一步一定是安裝相關套件
+```bash
+$ yarn install
 ```
 
 ### Local Development
-
+使用一下指令進入開發板，所有修改都能即時看到。
+```bash
+$ yarn run start
 ```
-$ yarn start
-```
-
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
 ### Build
 
-```
+```bash
 $ yarn build
 ```
 
