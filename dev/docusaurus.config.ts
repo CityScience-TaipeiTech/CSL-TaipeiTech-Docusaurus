@@ -3,8 +3,8 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: '看屁阿',
-  tagline: 'Micheal is cool',
+  title: '好康的',
+  tagline: 'Micheal is not here',
   favicon: 'img/csl.png',
   // favicon: 'img/favicon.ico',
 
@@ -16,7 +16,7 @@ const config: Config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
+  organizationName: 'MIT Media Lab@TeipaiTech', // Usually your GitHub org/user name.
   projectName: 'docusaurus', // Usually your repo name.
 
   onBrokenLinks: 'throw',
