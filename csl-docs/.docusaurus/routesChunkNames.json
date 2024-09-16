@@ -205,18 +205,38 @@
     },
     "config": "config---test-5-e-9-672"
   },
-  "/docs-781": {
+  "/docs-e42": {
     "__comp": "__comp---theme-docs-root-5-e-9-0b6",
     "__context": {
       "plugin": "plugin---docs-92-c-f19"
     }
   },
-  "/docs-3e9": {
+  "/docs-d55": {
     "__comp": "__comp---theme-doc-version-roota-7-b-5de",
     "version": "version---docs-935-398"
   },
-  "/docs-674": {
+  "/docs/tags-0cc": {
+    "__comp": "__comp---theme-doc-tags-list-page-372-89e",
+    "tags": "tags---docs-tags-559-5e5"
+  },
+  "/docs/tags/docusaurus-v-2-bc4": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "tag": "tag---docs-tags-docusaurus-v-2130-15d"
+  },
+  "/docs/tags/hello-17d": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "tag": "tag---docs-tags-hello-3-d-5-d9d"
+  },
+  "/docs-d9b": {
     "__comp": "__comp---theme-doc-roota-94-67a"
+  },
+  "/docs/airflow/slack_notification_tutorial-37d": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-airflow-slack-notification-tutoriald-03-280"
+  },
+  "/docs/airflow/welcome-docusaurus-v2-fef": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-airflow-welcome-docusaurus-v-274-f-68a"
   },
   "/docs/category/city-scope-6f9": {
     "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",

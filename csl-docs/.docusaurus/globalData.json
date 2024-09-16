@@ -11,6 +11,16 @@
           "mainDocId": "intro",
           "docs": [
             {
+              "id": "airflow/slack_notification_tutorial",
+              "path": "/docs/airflow/slack_notification_tutorial",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "airflow/test",
+              "path": "/docs/airflow/welcome-docusaurus-v2",
+              "sidebar": "tutorialSidebar"
+            },
+            {
               "id": "cityscope/todo",
               "path": "/docs/cityscope/todo",
               "sidebar": "tutorialSidebar"

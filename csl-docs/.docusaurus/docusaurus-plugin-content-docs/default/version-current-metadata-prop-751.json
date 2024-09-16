@@ -153,10 +153,44 @@
           }
         ],
         "href": "/docs/category/實驗室資料庫設定"
+      },
+      {
+        "type": "category",
+        "label": "airflow",
+        "collapsible": true,
+        "collapsed": true,
+        "items": [
+          {
+            "type": "link",
+            "label": "Airflow 串接 Slack通知教學",
+            "href": "/docs/airflow/slack_notification_tutorial",
+            "docId": "airflow/slack_notification_tutorial",
+            "unlisted": false
+          },
+          {
+            "type": "link",
+            "label": "Welcome Docusaurus",
+            "href": "/docs/airflow/welcome-docusaurus-v2",
+            "docId": "airflow/test",
+            "unlisted": false
+          }
+        ]
       }
     ]
   },
   "docs": {
+    "airflow/slack_notification_tutorial": {
+      "id": "airflow/slack_notification_tutorial",
+      "title": "Airflow 串接 Slack通知教學",
+      "description": "如何設定並替Airflow介接Slack，自動化DAG錯誤通報",
+      "sidebar": "tutorialSidebar"
+    },
+    "airflow/test": {
+      "id": "airflow/test",
+      "title": "Welcome Docusaurus",
+      "description": "This is my first post on Docusaurus.",
+      "sidebar": "tutorialSidebar"
+    },
     "cityscope/todo": {
       "id": "cityscope/todo",
       "title": "目標",

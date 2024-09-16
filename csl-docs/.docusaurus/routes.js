@@ -104,16 +104,43 @@ export default [
   },
   {
     path: '/docs',
-    component: ComponentCreator('/docs', '781'),
+    component: ComponentCreator('/docs', 'e42'),
     routes: [
       {
         path: '/docs',
-        component: ComponentCreator('/docs', '3e9'),
+        component: ComponentCreator('/docs', 'd55'),
         routes: [
           {
+            path: '/docs/tags',
+            component: ComponentCreator('/docs/tags', '0cc'),
+            exact: true
+          },
+          {
+            path: '/docs/tags/docusaurus-v-2',
+            component: ComponentCreator('/docs/tags/docusaurus-v-2', 'bc4'),
+            exact: true
+          },
+          {
+            path: '/docs/tags/hello',
+            component: ComponentCreator('/docs/tags/hello', '17d'),
+            exact: true
+          },
+          {
             path: '/docs',
-            component: ComponentCreator('/docs', '674'),
+            component: ComponentCreator('/docs', 'd9b'),
             routes: [
+              {
+                path: '/docs/airflow/slack_notification_tutorial',
+                component: ComponentCreator('/docs/airflow/slack_notification_tutorial', '37d'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/docs/airflow/welcome-docusaurus-v2',
+                component: ComponentCreator('/docs/airflow/welcome-docusaurus-v2', 'fef'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
               {
                 path: '/docs/category/city-scope',
                 component: ComponentCreator('/docs/category/city-scope', '6f9'),

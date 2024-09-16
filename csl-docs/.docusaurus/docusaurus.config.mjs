@@ -4,12 +4,12 @@
  * Modify the docusaurus.config.js file at your site's root instead.
  */
 export default {
-  "title": "看屁阿",
-  "tagline": "Micheal is cool",
+  "title": "好康的",
+  "tagline": "Micheal is not here",
   "favicon": "img/csl.png",
   "url": "https://your-docusaurus-site.example.com",
   "baseUrl": "/",
-  "organizationName": "facebook",
+  "organizationName": "MIT Media Lab@TeipaiTech",
   "projectName": "docusaurus",
   "onBrokenLinks": "throw",
   "onBrokenMarkdownLinks": "warn",
