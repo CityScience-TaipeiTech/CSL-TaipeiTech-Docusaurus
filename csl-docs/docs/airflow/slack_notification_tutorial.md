@@ -54,6 +54,7 @@ Airflow部分有二種方式可對應不同的hook，一種為`HTTP Webhook`，�
 
 ![NewConnection](image-6.png)
 
+### 02-2 不同Connection Type選擇
 
 **HTTP版本**
 
@@ -73,39 +74,206 @@ Airflow部分有二種方式可對應不同的hook，一種為`HTTP Webhook`，�
 **SlackNotifier版本**
 
 **參考影片｜**[SlackNotifier教學](https://www.youtube.com/watch?v=4yQJWnhKEa4)
+
 於Slack API的頁面中，找到 Features > OAuth & Permissions
 
-![SlackNotifier](image-8.png)
+![OAuth](image-8.png)
+
+將OAuth這一段Token貼到Airflow的Slack API Token中，下方Timeout與其他維持預設設定。
+
+![SlackNotifier](image-9.png)
 
 ## 03 建立通報訊息與功能
-參考來源如下：
-複雜版
-有系統性的維護時可用
+網路上文章除了前面提到的，依照Connection Type與呼叫的Airflow模組(`HTTP Webhook`、`SlackNotifier`)不同外，功能的寫法也有簡易版(單純寫function然後import)與複雜版(寫Class然後進一步依照訊息狀態做出區隔)的不同。
 
-簡單版
-直接寫成function後import即可(目前Airflow亦採用此版)
+目前CSL的Airflow採用KISS原則(Keep it simple, stupid)，選擇簡易版的作法。後續若隨著資料庫需求增加，可考慮換成複雜版Class的寫法，方便後續依照使用情境進行通知設定。
 
-影片
-可做為單個DAG的測試，好處是可以看到發送的log，方便進行debug
+### 關鍵重點: 確認模組所需傳遞的參數與名稱
+由於Airflow版本不同，模組所需傳遞的參數名稱也不同。網路上的教學較少提及採用的Airflow版本，也因此導致直接參考時容易出錯。建議後續在串接時，先於該tooltip中確認導入模組的參數再進行設定。
 
-**關鍵重點**
-不同版本Airflow的`SlackWebhookOperator`、`SlackNotifier`，內部所需傳遞的參數也不同，建議開發時於該tooltip中確認(本身就因為傳遞參數錯誤而花了數天不得其門而入)
+![Parameter](image-10.jpg)
 
-填寫程式碼內容
+### 03-1 HTTP Webhook 簡易版
+**參考文章｜**
+[Automated Alerts for Airflow with Slack](https://towardsdatascience.com/automated-alerts-for-airflow-with-slack-5c6ec766a823)
 
-進階：
-排版格式美化
-Slack emoji
+直接寫成function後import即可(目前Airflow亦採用此版)，基本上只有二步驟，後續若要調整訊息內容或除錯都很方便：
+1. 在utils資料夾新增Python檔案並新增function
+2. 於DAG的argument導入該function
+
+**1.在utils資料夾新增Python檔案並新增function**
+```
+from airflow.providers.slack.operators.slack_webhook import SlackWebhookOperator
+from airflow.utils.context import Context
+import pytz
+
+SLACK_CONN_ID = "airflow_alerts" #Airflow設定的Connection名稱
+SLACK_CHANNEL = "airflow" #Slack要發送訊息的頻道名稱，若為個人私訊可不用設定
+
+def on_fail_callback(context: Context, **kwargs):
+
+    local_dt = context.get('execution_date').astimezone(pytz.timezone('Asia/Taipei'))
+    options = {
+        'icon': ':pig:',
+        'title': 'Failed'
+    }
+    options.update(kwargs)
+    slack_message = """
+    {icon} *{title}*
+    ---------------------------------------
+    *Dag*: {dag}
+    *Task*: {task}
+    *Execution Date:* {execution_date}
+    <{log_url}|*Logs*>
+    """.format(
+        icon=options['icon'],
+        title=options['title'],
+        dag=context.get('task_instance').dag_id,
+        task=context.get('task_instance').task_id,
+        execution_date=local_dt.strftime('%Y%m%d %H:%M:%S'),
+        log_url=context.get('task_instance').log_url
+    )        
+
+    # Use SlackWebhookOperator to send message
+    slack_alert = SlackWebhookOperator(
+        task_id='send_slack_message',
+        slack_webhook_conn_id=SLACK_CONN_ID,
+        message=slack_message,
+        channel=SLACK_CHANNEL
+    )
+slack_alert.execute(context)
+```
+
+**2.於DAG的argument導入該function**
+
+有二種方式可以導入該模型，一種是在default_args導入，一種是在@dag的前方參數部分傳入，二者擇一即可。
+```
+default_args = {
+    ...
+    'on_failure_callback': on_fail_callback,
+}
+```
+```
+@dag(
+    ...
+    on_failure_callback = on_fail_callback,
+    default_args=default_args
+)
+```
+
+### 03-2 HTTP Webhook 複雜版
+**參考文章｜**
+[Airflow callbacks to Slack notifications for DAG monitoring and alerting](https://alirezasadeghi1.medium.com/airflow-callbacks-to-slack-notifications-for-dag-monitoring-and-alerting-9694e76d805f)
+
+針對不同情境設定不同通知(alert/info/warning)，有系統性的維護時可用。
+此處由於拆分檔案較多，不另貼上程式碼。
+
+### 03-3 SlackNotifier
+**參考影片｜**
+[How to Add Slack Notifications to Your Airflow DAG's with Airflow Notifiers!](https://www.youtube.com/watch?v=4yQJWnhKEa4)
+
+使用`SlackNotifier`進行串接。下方範例可做為單個DAG的測試，可以看到過程中的log(如:Connection設定錯誤等)，方便進行debug。
+
+```
+from airflow.decorators import dag, task
+from pendulum import datetime
+from airflow.providers.slack.notifications.slack_notifier import SlackNotifier
+
+SLACK_CONN_ID = "slack_report_slackapi"
+SLACK_CHANNEL = "airflow"
+SLACK_MESSAGE = """
+    Hello! The {{ ti.task_id}} task is saying hi :wave:
+    Today is the {{ ds }} and this task finished with the state: {{ ti.state }} :tada:.
+"""
+
+@dag(
+    start_date=datetime(2024, 9, 3),
+    schedule=None,
+    catchup=False,
+    tags=["NOtifier", "Slack"]
+)
+
+def notifier_slack():
+    @task(
+        on_success_callback=SlackNotifier(
+            slack_conn_id=SLACK_CONN_ID,
+            text=SLACK_MESSAGE,
+            channel=SLACK_CHANNEL,
+        )
+    )
+    def post_to_slack():
+        return 10
+    
+    post_to_slack()
+
+notifier_slack()
+```
+
+**進階**
+
+訊息部分的排版格式可以再優化，部分Slack emoji也可進行替換。訊息部分如下圖。
+![Message](image-11.png)
+```
+options = {
+        'icon': ':pig:', #icon可換成其他Slack emoji
+        'title': 'Failed' #Title文字可再調整
+    }
+slack_message = """
+    {icon} *{title}*
+    ---------------------------------------
+    *Dag*: {dag}
+    *Task*: {task}
+    *Execution Date:* {execution_date}
+    <{log_url}|*Logs*>
+    """.format(
+        icon=options['icon'],
+        title=options['title'],
+        dag=context.get('task_instance').dag_id,
+        task=context.get('task_instance').task_id,
+        execution_date=local_dt.strftime('%Y%m%d %H:%M:%S'),
+        log_url=context.get('task_instance').log_url #回傳Server上log的網址，登入後可查看
+    ) 
+```
 
 ## 04 導入與測試
+基本上完成功能建置後，只需要在對應的DAG中進行導入即可。如前所述，一種是在default_args導入，一種是在@dag的前方參數部分傳入，二者擇一。
+```
+default_args = {
+    ...
+    'on_failure_callback': on_fail_callback,
+}
+```
+```
+@dag(
+    ...
+    on_failure_callback = on_fail_callback,
+    default_args=default_args
+)
+```
 
-某篇文章提到串接DAG沒有很好的debug流程
+此處以hou_rental_encode為例，import對應功能並新增對應參數。在DAG執行失敗時，就可以收到失敗的訊息(如下圖)
 
-單個DAG測試：確認可行
-導入至其他DAG作為default argument(或另外寫亦可)
-但須留意如果在前期建立DAG時，由於會經常試跑與測試DAG，為避免錯誤回報訊息過多，應於DAG完成並且可運作時再於default argument導入並加上這段
+![Code](image-12.png)
 
-## 附錄：參考文章
+![failed_airflow](image-10.png)
 
-1. [Airflow callbacks to Slack notifications for DAG monitoring and alerting](https://alirezasadeghi1.medium.com/airflow-callbacks-to-slack-notifications-for-dag-monitoring-and-alerting-9694e76d805f)
-2. 
+![failed_message](image-13.png)
+
+### Note: 如何除錯 
+
+某篇文章提到串接DAG沒有很好的debug流程，主要原因是只有DAG層級會有log紀錄，但如果單純功能無法使用並不會有對應的log。詳細內容可參考[此篇文章](https://medium.com/towards-data-engineering/how-to-integrate-slack-notifications-with-airflow-tested-2023-5b31c4cc7ce3#1620)
+
+該文章內提到有四個步驟可以測試是哪一段出問題，詳細如下。但個人建議可以**直接透過03-3提到的SlackNotifier，建立測試用DAG並查看log資訊**，在後續除錯上就可以看到對應的錯誤資訊了。
+
+
+**Troubleshooting**
+
+Sadly, there are no troubleshooting steps, as I was not able to see any logs at DAG level when the utility was failing and I was not getting notified on Slack. The trick was to test each step independently.
+
+1. Test if your webhook is able to send messages to the Slack Channel using the curl command.
+2. Test if your airflow connection for the slack webhook is setup properly
+3. Start with very basic message string
+4. Make sure you are using correct connection ID in your utility script
+
+
+到此大致上功能告一段落，後續可依照個人需求，調整訊息格式或排版，讓每天的例行DAG通知不會塞滿整個對話視窗，這應該會是第二步更進階的挑戰了。僅此紀錄。
