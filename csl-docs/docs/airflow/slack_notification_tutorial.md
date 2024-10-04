@@ -9,7 +9,7 @@ hide_table_of_contents: false
 > **Date |** 2024-09-13
 
 整體來說雖然步驟和介面稍微複雜，但唯一可能踩坑的點應該是隨著Airflow版本不同，呼叫的hook的所需參數也不同，初步整理如下。
-![airflow_channel_notification](image.png)
+![airflow_channel_notification](slack_notification_tutorial\image.png)
 
 ## 01 建立 Slack API
 由於Slack需要透過API傳送客製化排成與訊息，因此第一步我們需要先至Slack創建屬於自己的App(API)。而好消息是，Slack在這方面的官網教學資源非常豐富，Airflow也有對應的教學資源，基本上不用擔心。不用是管理員，個人帳號也可以自己建立Webhook。參考以下文章，透過官網建立API。
@@ -21,7 +21,7 @@ hide_table_of_contents: false
 
 > (Note: Slack針對自行建立的API有各種權限設定，大多權限是針對頻道而不是個人私訊，但此處測試過預設設定不受影響，若後續有需求可進一步研究。)
 
-![Airflow頻道選擇](image-1.png)
+![Airflow頻道選擇](slack_notification_tutorial\image-1.png)
 
 ### 01-2 基本資訊設定
 創建成功後，基本上只會使用到左側目錄列的三個地方：Basic Information、Install App以及Incoming Webhooks。若第一次設定只需填寫Basic Information即可，
@@ -29,18 +29,18 @@ hide_table_of_contents: false
 **Settings > Basic Information**
 
 主要設定`App name`、`Description`以及 `App縮圖`，此處App縮圖為自行繪製，可上傳創意頭貼或其他圖片。
-![DisplayInfo](image-2.png)
+![DisplayInfo](slack_notification_tutorial\image-2.png)
 
 **Settings > Install App** (Optional)
 
 設定目前API傳送訊息的**頻道**，若需要切換頻道或有調整API權限可於此選擇 `Reinstall to ...`重新選擇頻道與相關設定。
-![InstallApp](image-3.png)
+![InstallApp](slack_notification_tutorial\image-3.png)
 
 
 **Features > Incoming Webhooks**
 
 此處Webhook URL是後續Airflow設定所需之資訊，建議可先複製起來待會使用。
-![IncomingWebhook](image-4.png)
+![IncomingWebhook](slack_notification_tutorial\image-4.png)
 
 ## 02 建立 Airflow Connection
 Airflow部分有二種方式可對應不同的hook，一種為`HTTP Webhook`，一種則是`SlackNotifier`。網路上多數教學文章以HTTP Webhook為主，但二種皆可傳送訊息但Airflow Connection設定、Function內寫法略有出入，可於下方參考各自來源解說。
@@ -48,11 +48,11 @@ Airflow部分有二種方式可對應不同的hook，一種為`HTTP Webhook`，�
 ### 02-1 新增Connection
 於Airflow上方點擊 Admin > Connection
 
-![AirflowConnection](image-5.png)
+![AirflowConnection](slack_notification_tutorial\image-5.png)
 
 新增new record
 
-![NewConnection](image-6.png)
+![NewConnection](slack_notification_tutorial\image-6.png)
 
 ### 02-2 不同Connection Type選擇
 
@@ -66,7 +66,7 @@ Airflow部分有二種方式可對應不同的hook，一種為`HTTP Webhook`，�
 
 (schema可寫可不寫)
 
-![alt text](image-7.png)
+![alt text](slack_notification_tutorial\image-7.png)
 
 完成後點選`save`即可新增，完成設定。
 頻道名稱要寫入在`Login`中、密碼另外貼，
@@ -77,11 +77,11 @@ Airflow部分有二種方式可對應不同的hook，一種為`HTTP Webhook`，�
 
 於Slack API的頁面中，找到 Features > OAuth & Permissions
 
-![OAuth](image-8.png)
+![OAuth](slack_notification_tutorial\image-8.png)
 
 將OAuth這一段Token貼到Airflow的Slack API Token中，下方Timeout與其他維持預設設定。
 
-![SlackNotifier](image-9.png)
+![SlackNotifier](slack_notification_tutorial\image-9.png)
 
 ## 03 建立通報訊息與功能
 網路上文章除了前面提到的，依照Connection Type與呼叫的Airflow模組(`HTTP Webhook`、`SlackNotifier`)不同外，功能的寫法也有簡易版(單純寫function然後import)與複雜版(寫Class然後進一步依照訊息狀態做出區隔)的不同。
@@ -91,7 +91,7 @@ Airflow部分有二種方式可對應不同的hook，一種為`HTTP Webhook`，�
 ### 關鍵重點: 確認模組所需傳遞的參數與名稱
 由於Airflow版本不同，模組所需傳遞的參數名稱也不同。網路上的教學較少提及採用的Airflow版本，也因此導致直接參考時容易出錯。建議後續在串接時，先於該tooltip中確認導入模組的參數再進行設定。
 
-![Parameter](image-10.jpg)
+![Parameter](slack_notification_tutorial\image-10.jpg)
 
 ### 03-1 HTTP Webhook 簡易版
 **參考文章｜**
@@ -212,7 +212,7 @@ notifier_slack()
 **進階**
 
 訊息部分的排版格式可以再優化，部分Slack emoji也可進行替換。訊息部分如下圖。
-![Message](image-11.png)
+![Message](slack_notification_tutorial\image-11.png)
 ```
 options = {
         'icon': ':pig:', #icon可換成其他Slack emoji
@@ -253,11 +253,11 @@ default_args = {
 
 此處以hou_rental_encode為例，import對應功能並新增對應參數。在DAG執行失敗時，就可以收到失敗的訊息(如下圖)
 
-![Code](image-12.png)
+![Code](slack_notification_tutorial\image-12.png)
 
-![failed_airflow](image-10.png)
+![failed_airflow](slack_notification_tutorial\image-10.png)
 
-![failed_message](image-13.png)
+![failed_message](slack_notification_tutorial\image-13.png)
 
 ### Note: 如何除錯 
 
