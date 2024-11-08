@@ -11,18 +11,18 @@
           "mainDocId": "intro",
           "docs": [
             {
+              "id": "airflow/h3_process_tips",
+              "path": "/docs/airflow/h3_process_tips",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "airflow/modify_authorization",
+              "path": "/docs/airflow/modify_authorization",
+              "sidebar": "tutorialSidebar"
+            },
+            {
               "id": "airflow/slack_notification_tutorial",
               "path": "/docs/airflow/slack_notification_tutorial",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "airflow/test",
-              "path": "/docs/airflow/welcome-docusaurus-v2",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "cityscope/todo",
-              "path": "/docs/cityscope/todo",
               "sidebar": "tutorialSidebar"
             },
             {
@@ -31,18 +31,13 @@
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "server-setting/tutorial",
-              "path": "/docs/server-setting/tutorial",
+              "id": "stdb/start",
+              "path": "/docs/stdb/start",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "super-contoller/todo",
               "path": "/docs/super-contoller/todo",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "taiwan-island/todo",
-              "path": "/docs/taiwan-island/todo",
               "sidebar": "tutorialSidebar"
             },
             {
@@ -96,23 +91,18 @@
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "/category/city-scope",
-              "path": "/docs/category/city-scope",
+              "id": "/category/時空間資料庫",
+              "path": "/docs/category/時空間資料庫",
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "/category/super-contoller",
-              "path": "/docs/category/super-contoller",
+              "id": "/category/airflow-疑難排解",
+              "path": "/docs/category/airflow-疑難排解",
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "/category/taiwan-island",
-              "path": "/docs/category/taiwan-island",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "/category/實驗室資料庫設定",
-              "path": "/docs/category/實驗室資料庫設定",
+              "id": "/category/demo-控制器",
+              "path": "/docs/category/demo-控制器",
               "sidebar": "tutorialSidebar"
             }
           ],

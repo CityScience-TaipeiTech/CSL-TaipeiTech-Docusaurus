@@ -1,8 +1,0 @@
-{
-  "label": "實驗室資料庫設定",
-  "position": 7,
-  "link": {
-    "type": "generated-index",
-    "description": "Hbase, Vertor database, PostgresSQL,..."
-  }
-}

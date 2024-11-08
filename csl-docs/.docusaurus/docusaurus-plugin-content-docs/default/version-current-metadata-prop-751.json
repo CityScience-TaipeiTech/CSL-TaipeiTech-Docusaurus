@@ -92,39 +92,53 @@
       },
       {
         "type": "category",
-        "label": "City Scope",
+        "label": "時空間資料庫",
         "collapsible": true,
         "collapsed": true,
         "items": [
           {
             "type": "link",
-            "label": "目標",
-            "href": "/docs/cityscope/todo",
-            "docId": "cityscope/todo",
+            "label": "start",
+            "href": "/docs/stdb/start",
+            "docId": "stdb/start",
             "unlisted": false
           }
         ],
-        "href": "/docs/category/city-scope"
+        "href": "/docs/category/時空間資料庫"
       },
       {
         "type": "category",
-        "label": "Super Contoller",
+        "label": "Airflow 疑難排解",
         "collapsible": true,
         "collapsed": true,
         "items": [
           {
             "type": "link",
-            "label": "目標",
-            "href": "/docs/taiwan-island/todo",
-            "docId": "taiwan-island/todo",
+            "label": "Airflow DAG圖資轉H3模組注意事項",
+            "href": "/docs/airflow/h3_process_tips",
+            "docId": "airflow/h3_process_tips",
+            "unlisted": false
+          },
+          {
+            "type": "link",
+            "label": "Airflow Server資料夾權限設定調整",
+            "href": "/docs/airflow/modify_authorization",
+            "docId": "airflow/modify_authorization",
+            "unlisted": false
+          },
+          {
+            "type": "link",
+            "label": "Airflow 串接 Slack通知教學",
+            "href": "/docs/airflow/slack_notification_tutorial",
+            "docId": "airflow/slack_notification_tutorial",
             "unlisted": false
           }
         ],
-        "href": "/docs/category/super-contoller"
+        "href": "/docs/category/airflow-疑難排解"
       },
       {
         "type": "category",
-        "label": "Taiwan Island",
+        "label": "Demo 控制器",
         "collapsible": true,
         "collapsed": true,
         "items": [
@@ -136,65 +150,27 @@
             "unlisted": false
           }
         ],
-        "href": "/docs/category/taiwan-island"
-      },
-      {
-        "type": "category",
-        "label": "實驗室資料庫設定",
-        "collapsible": true,
-        "collapsed": true,
-        "items": [
-          {
-            "type": "link",
-            "label": "Tutorial",
-            "href": "/docs/server-setting/tutorial",
-            "docId": "server-setting/tutorial",
-            "unlisted": false
-          }
-        ],
-        "href": "/docs/category/實驗室資料庫設定"
-      },
-      {
-        "type": "category",
-        "label": "airflow",
-        "collapsible": true,
-        "collapsed": true,
-        "items": [
-          {
-            "type": "link",
-            "label": "Airflow 串接 Slack通知教學",
-            "href": "/docs/airflow/slack_notification_tutorial",
-            "docId": "airflow/slack_notification_tutorial",
-            "unlisted": false
-          },
-          {
-            "type": "link",
-            "label": "Welcome Docusaurus",
-            "href": "/docs/airflow/welcome-docusaurus-v2",
-            "docId": "airflow/test",
-            "unlisted": false
-          }
-        ]
+        "href": "/docs/category/demo-控制器"
       }
     ]
   },
   "docs": {
+    "airflow/h3_process_tips": {
+      "id": "airflow/h3_process_tips",
+      "title": "Airflow DAG圖資轉H3模組注意事項",
+      "description": "如何正確使用H3-Toolkit進行轉換",
+      "sidebar": "tutorialSidebar"
+    },
+    "airflow/modify_authorization": {
+      "id": "airflow/modify_authorization",
+      "title": "Airflow Server資料夾權限設定調整",
+      "description": "權限設定跑掉導致DAG無法運作時的調整方式",
+      "sidebar": "tutorialSidebar"
+    },
     "airflow/slack_notification_tutorial": {
       "id": "airflow/slack_notification_tutorial",
       "title": "Airflow 串接 Slack通知教學",
       "description": "如何設定並替Airflow介接Slack，自動化DAG錯誤通報",
-      "sidebar": "tutorialSidebar"
-    },
-    "airflow/test": {
-      "id": "airflow/test",
-      "title": "Welcome Docusaurus",
-      "description": "This is my first post on Docusaurus.",
-      "sidebar": "tutorialSidebar"
-    },
-    "cityscope/todo": {
-      "id": "cityscope/todo",
-      "title": "目標",
-      "description": "建立 visualization 平台，......",
       "sidebar": "tutorialSidebar"
     },
     "intro": {
@@ -203,22 +179,16 @@
       "description": "Let's discover Docusaurus in less than 5 minutes.",
       "sidebar": "tutorialSidebar"
     },
-    "server-setting/tutorial": {
-      "id": "server-setting/tutorial",
-      "title": "Tutorial",
-      "description": "用來紀錄實驗室中的各建制細節",
+    "stdb/start": {
+      "id": "stdb/start",
+      "title": "start",
+      "description": "ABC",
       "sidebar": "tutorialSidebar"
     },
     "super-contoller/todo": {
       "id": "super-contoller/todo",
       "title": "目標",
       "description": "能只靠 Pad 控制所有實驗室的 demo",
-      "sidebar": "tutorialSidebar"
-    },
-    "taiwan-island/todo": {
-      "id": "taiwan-island/todo",
-      "title": "目標",
-      "description": "更大版的 City Scope",
       "sidebar": "tutorialSidebar"
     },
     "tutorial-basics/congratulations": {

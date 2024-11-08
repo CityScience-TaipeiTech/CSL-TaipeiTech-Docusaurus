@@ -17,11 +17,7 @@
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "Taiwan Island",
-    "permalink": "/docs/category/taiwan-island"
-  },
-  "next": {
-    "title": "實驗室資料庫設定",
-    "permalink": "/docs/category/實驗室資料庫設定"
+    "title": "Demo 控制器",
+    "permalink": "/docs/category/demo-控制器"
   }
 }

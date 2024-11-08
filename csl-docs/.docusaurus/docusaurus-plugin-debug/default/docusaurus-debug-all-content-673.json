@@ -20,6 +20,62 @@
           "contentPathLocalized": "/home/csl/Documents/GitHub/CSL-TaipeiTech-Docusaurus/csl-docs/i18n/en/docusaurus-plugin-content-docs/current",
           "docs": [
             {
+              "id": "airflow/h3_process_tips",
+              "title": "Airflow DAG圖資轉H3模組注意事項",
+              "description": "如何正確使用H3-Toolkit進行轉換",
+              "source": "@site/docs/airflow/h3_process_tips.md",
+              "sourceDirName": "airflow",
+              "slug": "/airflow/h3_process_tips",
+              "permalink": "/docs/airflow/h3_process_tips",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/airflow/h3_process_tips.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Airflow DAG圖資轉H3模組注意事項",
+                "description": "如何正確使用H3-Toolkit進行轉換",
+                "hide_table_of_contents": false
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Airflow 疑難排解",
+                "permalink": "/docs/category/airflow-疑難排解"
+              },
+              "next": {
+                "title": "Airflow Server資料夾權限設定調整",
+                "permalink": "/docs/airflow/modify_authorization"
+              }
+            },
+            {
+              "id": "airflow/modify_authorization",
+              "title": "Airflow Server資料夾權限設定調整",
+              "description": "權限設定跑掉導致DAG無法運作時的調整方式",
+              "source": "@site/docs/airflow/modify_authorization.md",
+              "sourceDirName": "airflow",
+              "slug": "/airflow/modify_authorization",
+              "permalink": "/docs/airflow/modify_authorization",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/airflow/modify_authorization.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "title": "Airflow Server資料夾權限設定調整",
+                "description": "權限設定跑掉導致DAG無法運作時的調整方式",
+                "hide_table_of_contents": false
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Airflow DAG圖資轉H3模組注意事項",
+                "permalink": "/docs/airflow/h3_process_tips"
+              },
+              "next": {
+                "title": "Airflow 串接 Slack通知教學",
+                "permalink": "/docs/airflow/slack_notification_tutorial"
+              }
+            },
+            {
               "id": "airflow/slack_notification_tutorial",
               "title": "Airflow 串接 Slack通知教學",
               "description": "如何設定並替Airflow介接Slack，自動化DAG錯誤通報",
@@ -39,100 +95,12 @@
               },
               "sidebar": "tutorialSidebar",
               "previous": {
-                "title": "Tutorial",
-                "permalink": "/docs/server-setting/tutorial"
+                "title": "Airflow Server資料夾權限設定調整",
+                "permalink": "/docs/airflow/modify_authorization"
               },
               "next": {
-                "title": "Welcome Docusaurus",
-                "permalink": "/docs/airflow/welcome-docusaurus-v2"
-              }
-            },
-            {
-              "id": "airflow/test",
-              "title": "Welcome Docusaurus",
-              "description": "This is my first post on Docusaurus.",
-              "source": "@site/docs/airflow/test.md",
-              "sourceDirName": "airflow",
-              "slug": "/airflow/welcome-docusaurus-v2",
-              "permalink": "/docs/airflow/welcome-docusaurus-v2",
-              "draft": false,
-              "unlisted": false,
-              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/airflow/test.md",
-              "tags": [
-                {
-                  "label": "hello",
-                  "permalink": "/docs/tags/hello"
-                },
-                {
-                  "label": "docusaurus-v2",
-                  "permalink": "/docs/tags/docusaurus-v-2"
-                }
-              ],
-              "version": "current",
-              "frontMatter": {
-                "title": "Welcome Docusaurus",
-                "description": "This is my first post on Docusaurus.",
-                "slug": "welcome-docusaurus-v2",
-                "authors": [
-                  {
-                    "name": "Joel Marcey",
-                    "title": "Co-creator of Docusaurus 1",
-                    "url": "https://github.com/JoelMarcey",
-                    "image_url": "https://github.com/JoelMarcey.png",
-                    "socials": {
-                      "x": "joelmarcey",
-                      "github": "JoelMarcey"
-                    }
-                  },
-                  {
-                    "name": "Sébastien Lorber",
-                    "title": "Docusaurus maintainer",
-                    "url": "https://sebastienlorber.com",
-                    "image_url": "https://github.com/slorber.png",
-                    "socials": {
-                      "x": "sebastienlorber",
-                      "github": "slorber"
-                    }
-                  }
-                ],
-                "tags": [
-                  "hello",
-                  "docusaurus-v2"
-                ],
-                "image": "https://i.imgur.com/mErPwqL.png",
-                "hide_table_of_contents": false
-              },
-              "sidebar": "tutorialSidebar",
-              "previous": {
-                "title": "Airflow 串接 Slack通知教學",
-                "permalink": "/docs/airflow/slack_notification_tutorial"
-              }
-            },
-            {
-              "id": "cityscope/todo",
-              "title": "目標",
-              "description": "建立 visualization 平台，......",
-              "source": "@site/docs/cityscope/todo.md",
-              "sourceDirName": "cityscope",
-              "slug": "/cityscope/todo",
-              "permalink": "/docs/cityscope/todo",
-              "draft": false,
-              "unlisted": false,
-              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/cityscope/todo.md",
-              "tags": [],
-              "version": "current",
-              "sidebarPosition": 1,
-              "frontMatter": {
-                "sidebar_position": 1
-              },
-              "sidebar": "tutorialSidebar",
-              "previous": {
-                "title": "City Scope",
-                "permalink": "/docs/category/city-scope"
-              },
-              "next": {
-                "title": "Super Contoller",
-                "permalink": "/docs/category/super-contoller"
+                "title": "Demo 控制器",
+                "permalink": "/docs/category/demo-控制器"
               }
             },
             {
@@ -159,30 +127,27 @@
               }
             },
             {
-              "id": "server-setting/tutorial",
-              "title": "Tutorial",
-              "description": "用來紀錄實驗室中的各建制細節",
-              "source": "@site/docs/server-setting/tutorial.md",
-              "sourceDirName": "server-setting",
-              "slug": "/server-setting/tutorial",
-              "permalink": "/docs/server-setting/tutorial",
+              "id": "stdb/start",
+              "title": "start",
+              "description": "ABC",
+              "source": "@site/docs/stdb/start.md",
+              "sourceDirName": "stdb",
+              "slug": "/stdb/start",
+              "permalink": "/docs/stdb/start",
               "draft": false,
               "unlisted": false,
-              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/server-setting/tutorial.md",
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/stdb/start.md",
               "tags": [],
               "version": "current",
-              "sidebarPosition": 1,
-              "frontMatter": {
-                "sidebar_position": 1
-              },
+              "frontMatter": {},
               "sidebar": "tutorialSidebar",
               "previous": {
-                "title": "實驗室資料庫設定",
-                "permalink": "/docs/category/實驗室資料庫設定"
+                "title": "時空間資料庫",
+                "permalink": "/docs/category/時空間資料庫"
               },
               "next": {
-                "title": "Airflow 串接 Slack通知教學",
-                "permalink": "/docs/airflow/slack_notification_tutorial"
+                "title": "Airflow 疑難排解",
+                "permalink": "/docs/category/airflow-疑難排解"
               }
             },
             {
@@ -204,39 +169,8 @@
               },
               "sidebar": "tutorialSidebar",
               "previous": {
-                "title": "Taiwan Island",
-                "permalink": "/docs/category/taiwan-island"
-              },
-              "next": {
-                "title": "實驗室資料庫設定",
-                "permalink": "/docs/category/實驗室資料庫設定"
-              }
-            },
-            {
-              "id": "taiwan-island/todo",
-              "title": "目標",
-              "description": "更大版的 City Scope",
-              "source": "@site/docs/taiwan-island/todo.md",
-              "sourceDirName": "taiwan-island",
-              "slug": "/taiwan-island/todo",
-              "permalink": "/docs/taiwan-island/todo",
-              "draft": false,
-              "unlisted": false,
-              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/taiwan-island/todo.md",
-              "tags": [],
-              "version": "current",
-              "sidebarPosition": 1,
-              "frontMatter": {
-                "sidebar_position": 1
-              },
-              "sidebar": "tutorialSidebar",
-              "previous": {
-                "title": "Super Contoller",
-                "permalink": "/docs/category/super-contoller"
-              },
-              "next": {
-                "title": "Taiwan Island",
-                "permalink": "/docs/category/taiwan-island"
+                "title": "Demo 控制器",
+                "permalink": "/docs/category/demo-控制器"
               }
             },
             {
@@ -451,8 +385,8 @@
                 "permalink": "/docs/tutorial-extras/manage-docs-versions"
               },
               "next": {
-                "title": "City Scope",
-                "permalink": "/docs/category/city-scope"
+                "title": "時空間資料庫",
+                "permalink": "/docs/category/時空間資料庫"
               }
             }
           ],
@@ -524,43 +458,51 @@
               },
               {
                 "type": "category",
-                "label": "City Scope",
+                "label": "時空間資料庫",
                 "collapsible": true,
                 "collapsed": true,
                 "items": [
                   {
                     "type": "doc",
-                    "id": "cityscope/todo"
+                    "id": "stdb/start"
                   }
                 ],
                 "link": {
                   "type": "generated-index",
-                  "description": "臺北盆地的文件",
-                  "slug": "/category/city-scope",
-                  "permalink": "/docs/category/city-scope"
+                  "description": "有關時間資料庫的...",
+                  "slug": "/category/時空間資料庫",
+                  "permalink": "/docs/category/時空間資料庫"
                 }
               },
               {
                 "type": "category",
-                "label": "Super Contoller",
+                "label": "Airflow 疑難排解",
                 "collapsible": true,
                 "collapsed": true,
                 "items": [
                   {
                     "type": "doc",
-                    "id": "taiwan-island/todo"
+                    "id": "airflow/h3_process_tips"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "airflow/modify_authorization"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "airflow/slack_notification_tutorial"
                   }
                 ],
                 "link": {
                   "type": "generated-index",
-                  "description": "Super ?",
-                  "slug": "/category/super-contoller",
-                  "permalink": "/docs/category/super-contoller"
+                  "description": "Airflow 的各種排錯方式",
+                  "slug": "/category/airflow-疑難排解",
+                  "permalink": "/docs/category/airflow-疑難排解"
                 }
               },
               {
                 "type": "category",
-                "label": "Taiwan Island",
+                "label": "Demo 控制器",
                 "collapsible": true,
                 "collapsed": true,
                 "items": [
@@ -572,43 +514,9 @@
                 "link": {
                   "type": "generated-index",
                   "description": "很大的 city scope",
-                  "slug": "/category/taiwan-island",
-                  "permalink": "/docs/category/taiwan-island"
+                  "slug": "/category/demo-控制器",
+                  "permalink": "/docs/category/demo-控制器"
                 }
-              },
-              {
-                "type": "category",
-                "label": "實驗室資料庫設定",
-                "collapsible": true,
-                "collapsed": true,
-                "items": [
-                  {
-                    "type": "doc",
-                    "id": "server-setting/tutorial"
-                  }
-                ],
-                "link": {
-                  "type": "generated-index",
-                  "description": "Hbase, Vertor database, PostgresSQL,...",
-                  "slug": "/category/實驗室資料庫設定",
-                  "permalink": "/docs/category/實驗室資料庫設定"
-                }
-              },
-              {
-                "type": "category",
-                "label": "airflow",
-                "collapsible": true,
-                "collapsed": true,
-                "items": [
-                  {
-                    "type": "doc",
-                    "id": "airflow/slack_notification_tutorial"
-                  },
-                  {
-                    "type": "doc",
-                    "id": "airflow/test"
-                  }
-                ]
               }
             ]
           }

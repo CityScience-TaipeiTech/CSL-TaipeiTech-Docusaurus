@@ -21,7 +21,7 @@
     "permalink": "/docs/category/實驗室資料庫設定"
   },
   "next": {
-    "title": "Airflow 串接 Slack通知教學",
-    "permalink": "/docs/airflow/slack_notification_tutorial"
+    "title": "start",
+    "permalink": "/docs/STDB/start"
   }
 }

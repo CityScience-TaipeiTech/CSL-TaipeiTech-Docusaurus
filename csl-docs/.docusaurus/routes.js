@@ -3,41 +3,6 @@ import ComponentCreator from '@docusaurus/ComponentCreator';
 
 export default [
   {
-    path: '/__docusaurus/debug',
-    component: ComponentCreator('/__docusaurus/debug', '946'),
-    exact: true
-  },
-  {
-    path: '/__docusaurus/debug/config',
-    component: ComponentCreator('/__docusaurus/debug/config', '305'),
-    exact: true
-  },
-  {
-    path: '/__docusaurus/debug/content',
-    component: ComponentCreator('/__docusaurus/debug/content', 'cd5'),
-    exact: true
-  },
-  {
-    path: '/__docusaurus/debug/globalData',
-    component: ComponentCreator('/__docusaurus/debug/globalData', '80d'),
-    exact: true
-  },
-  {
-    path: '/__docusaurus/debug/metadata',
-    component: ComponentCreator('/__docusaurus/debug/metadata', '815'),
-    exact: true
-  },
-  {
-    path: '/__docusaurus/debug/registry',
-    component: ComponentCreator('/__docusaurus/debug/registry', '8f3'),
-    exact: true
-  },
-  {
-    path: '/__docusaurus/debug/routes',
-    component: ComponentCreator('/__docusaurus/debug/routes', 'ab2'),
-    exact: true
-  },
-  {
     path: '/blog',
     component: ComponentCreator('/blog', 'd0f'),
     exact: true
@@ -104,31 +69,28 @@ export default [
   },
   {
     path: '/docs',
-    component: ComponentCreator('/docs', 'e42'),
+    component: ComponentCreator('/docs', '5af'),
     routes: [
       {
         path: '/docs',
-        component: ComponentCreator('/docs', 'd55'),
+        component: ComponentCreator('/docs', 'e81'),
         routes: [
           {
-            path: '/docs/tags',
-            component: ComponentCreator('/docs/tags', '0cc'),
-            exact: true
-          },
-          {
-            path: '/docs/tags/docusaurus-v-2',
-            component: ComponentCreator('/docs/tags/docusaurus-v-2', 'bc4'),
-            exact: true
-          },
-          {
-            path: '/docs/tags/hello',
-            component: ComponentCreator('/docs/tags/hello', '17d'),
-            exact: true
-          },
-          {
             path: '/docs',
-            component: ComponentCreator('/docs', 'd9b'),
+            component: ComponentCreator('/docs', 'c68'),
             routes: [
+              {
+                path: '/docs/airflow/h3_process_tips',
+                component: ComponentCreator('/docs/airflow/h3_process_tips', '069'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/docs/airflow/modify_authorization',
+                component: ComponentCreator('/docs/airflow/modify_authorization', '0ef'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
               {
                 path: '/docs/airflow/slack_notification_tutorial',
                 component: ComponentCreator('/docs/airflow/slack_notification_tutorial', '37d'),
@@ -136,26 +98,14 @@ export default [
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/docs/airflow/welcome-docusaurus-v2',
-                component: ComponentCreator('/docs/airflow/welcome-docusaurus-v2', 'fef'),
+                path: '/docs/category/airflow-疑難排解',
+                component: ComponentCreator('/docs/category/airflow-疑難排解', '95b'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/docs/category/city-scope',
-                component: ComponentCreator('/docs/category/city-scope', '6f9'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/docs/category/super-contoller',
-                component: ComponentCreator('/docs/category/super-contoller', '96f'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/docs/category/taiwan-island',
-                component: ComponentCreator('/docs/category/taiwan-island', '8bf'),
+                path: '/docs/category/demo-控制器',
+                component: ComponentCreator('/docs/category/demo-控制器', '5e9'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
@@ -172,14 +122,8 @@ export default [
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/docs/category/實驗室資料庫設定',
-                component: ComponentCreator('/docs/category/實驗室資料庫設定', '1b4'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/docs/cityscope/todo',
-                component: ComponentCreator('/docs/cityscope/todo', 'fcf'),
+                path: '/docs/category/時空間資料庫',
+                component: ComponentCreator('/docs/category/時空間資料庫', '4ef'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
@@ -190,20 +134,14 @@ export default [
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/docs/server-setting/tutorial',
-                component: ComponentCreator('/docs/server-setting/tutorial', 'eb5'),
+                path: '/docs/stdb/start',
+                component: ComponentCreator('/docs/stdb/start', 'ddd'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
                 path: '/docs/super-contoller/todo',
                 component: ComponentCreator('/docs/super-contoller/todo', 'a37'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/docs/taiwan-island/todo',
-                component: ComponentCreator('/docs/taiwan-island/todo', 'f7a'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
